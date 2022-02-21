@@ -24,14 +24,73 @@ namespace tic_tac_toe_game
         public static char Choosing()
         {
             Console.WriteLine("choose option:");
-            string letter = Console.ReadLine();
-            return char.ToUpper(letter[0]);
+            char player = Convert.ToChar(Console.ReadLine());
+            return player;
+
         }
-        public static void Display()
+        public static char ComputerInput(char player)
         {
-            Console.WriteLine(board);
+            Char computer;
+            if (player == 'X' || player == 'x')
+            {
+                computer = Convert.ToChar(Convert.ToInt32(player) - 9);
+            }
+
+            else if (player == 'O' || player == 'o')
+            {
+                computer = Convert.ToChar(Convert.ToInt32(player) + 9);
+
+            }
+            else
+            {
+                Console.WriteLine("Invalid player Option! Please try Again!");
+                return default;
+            }
+
+            Console.WriteLine("Player has chosen: {0} and computer has chosen: {1}", player, computer);
+            return (computer);
         }
 
+        public static void Display(char[] board)
+        {
+
+            Console.WriteLine("     |     |      ");
+
+            Console.WriteLine("  {0}  |  {1}  |  {2}", board[1], board[2], board[3]);
+
+            Console.WriteLine("_____|_____|_____ ");
+
+            Console.WriteLine("     |     |      ");
+
+            Console.WriteLine("  {0}  |  {1}  |  {2}", board[4], board[5], board[6]);
+
+            Console.WriteLine("_____|_____|_____ ");
+
+            Console.WriteLine("     |     |      ");
+
+            Console.WriteLine("  {0}  |  {1}  |  {2}", board[7], board[8], board[9]);
+
+            Console.WriteLine("     |     |      ");
+        }
+        public static void Position(char[] board, char player)
+        {
+            while (true)
+            {
+                Console.WriteLine("Enter position from 1 to 9:");
+                int pos = Convert.ToInt32(Console.ReadLine());
+                if (board[pos] == ' ')
+                {
+                    board[pos] = player;
+                    break;
+
+                }
+                else
+                {
+                    Console.WriteLine("Position already Occupied");
+                }
+            }
+
+        }
     }
 }
 
