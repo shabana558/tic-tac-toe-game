@@ -12,7 +12,9 @@ namespace tic_tac_toe_game
         {
             Console.WriteLine("welcome");
             tic_tac_toe_game.Initializing();
+            tic_tac_toe_game.Choosing();
             Console.ReadLine();
+            
          
         }
 

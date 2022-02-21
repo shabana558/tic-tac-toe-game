@@ -8,6 +8,8 @@ namespace tic_tac_toe_game
 {
     internal class tic_tac_toe_game
     {
+        private static bool board;
+
         public static char[] Initializing()
         {
             char[] board = new char[10];
@@ -18,6 +20,18 @@ namespace tic_tac_toe_game
             }
             return board;
         }
+
+        public static char Choosing()
+        {
+            Console.WriteLine("choose option:");
+            string letter = Console.ReadLine();
+            return char.ToUpper(letter[0]);
+        }
+        public static void Display()
+        {
+            Console.WriteLine(board);
+        }
+
     }
 }
 
